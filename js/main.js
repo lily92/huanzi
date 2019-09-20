@@ -12,10 +12,10 @@ $(function () {
 
   $(window).scroll(function () {
     var top = $(window).scrollTop();
-    if (top >= 100) {
-      $('.header').addClass('bgf')
+    if (top >= 60) {
+      $('.header').addClass('bgb')
     } else {
-      $('.header').removeClass('bgf')
+      $('.header').removeClass('bgb')
     }
   });
  

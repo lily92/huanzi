@@ -48,7 +48,7 @@ input,textarea,select,*{ outline: none;}
 .color-org{ color: $color-y}
 .fon-arial{ font-family: Arial, Helvetica, sans-serif}
 .w50{ width: 50%}
-
+.bgb{ background: #000;}
 /*图片翻转动画*/
 .transy{ cursor: pointer;}
 .transy img ,.transy i{
@@ -107,7 +107,7 @@ input,textarea,select,*{ outline: none;}
     height: 100%;
   }
  #page .swiper-slide{background: #000; transition: .4s linear all;}
-  .page-index{
+  .page-index0{
     label{ position: absolute; right: 20px; top: -9px; white-space: nowrap; opacity: 0; transition: .4s linear all;}
     .swiper-pagination-bullet:hover label{ opacity: 1;}
     .swiper-slide {
@@ -166,7 +166,7 @@ input,textarea,select,*{ outline: none;}
     .yinhao{ font-size: 100px; color:$color6; line-height: 20px;}
     .nowarps{ white-space: nowrap;}
     .about-desc{ margin-top: 10px; line-height: 1.8}
-    .about-txt{ position: absolute; font-size: 200px; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; color: #1f1f1f;  top: -30px; left: 0; }
+    .about-txt{ position: absolute; font-size: 100px; font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; color: #1f1f1f;  top: -30px; left: 0; }
   }
   .video{
     .title{ font-size: 22px; position: relative; text-align: center}
@@ -181,7 +181,7 @@ input,textarea,select,*{ outline: none;}
    span{ display: block;}
   }
   .more-margin0{ margin: 50px 0 0 0 ;}
-  .title-changp{ font-size: 100px; position: absolute; left: 0; top: -30px; text-transform: uppercase; color: #1f1f1f; }
+  .title-changp{ font-size: 50px; position: absolute; left: 0; top: -30px; text-transform: uppercase; color: #1f1f1f; line-height: 1; }
   .changpian{ 
     color: $color3;
     .changpian-list{
@@ -201,7 +201,7 @@ input,textarea,select,*{ outline: none;}
     .song-tab a{ display: inline-block; width: 130px; height: 35px; line-height: 35px; background: $colorf; color: $color3; text-align: center; margin-right: 10px;}
     .song-tab a:hover,a.cur{ background: #ff980f; color: $colorf;}
     .song-txt{ padding: 5px 0 10px ; border-bottom: 1px solid $color3}
-    .song-hover{ position: absolute; left: 0; top: 0; width: 0; z-index: 2; background: $colorf; height: 100%; justify-content: space-between;  display: none; opacity: 0; transition: .3s linear all;}
+    .song-hover{ position: absolute; left: 0; top: 0; width: 0; z-index: 2; background: $colorf; height: 100%; justify-content: space-between;  display: none; opacity: 0; transition: .3s linear all; overflow-y: hidden; overflow-x: visible}
     .song-list{ padding: 30px 0 0 0 ;
       ul{ justify-content: space-between;}
       ul li{ width: 18%}
@@ -209,12 +209,13 @@ input,textarea,select,*{ outline: none;}
       ul li:last-child .song-hover { left:  auto; right: 0;}
     }
     .song-list-4{
-      ul li { width: 23%; margin-bottom: 15px;}
-      ul li:last-child .song-hover{ left: 0; right: auto;}
-      li:nth-child(4n) .song-hover{left:  auto; right: 0;}
+      ul li { margin-bottom: 15px; display: block; width: 23%}
+      // ul li:last-child .song-hover{ left: 0; right: auto; }
+      ul li:hover,ul li.cur{ z-index: 999;}
+      li:nth-child(4n) .song-hover{left:  auto !important; right: 0 !important;}
     }
     .song-img{ width: 60%;}
-    .song-con{ width:40%; color: #666; padding: 5px; align-content: space-around;}
+    .song-con{ width:40%; color: #666; padding: 5px; }
   }
 
   .index-play-icon{ display: block; width: 60px; height: 60px; background: url(../images/index-video-play-icon.png)  no-repeat center;}
@@ -265,7 +266,7 @@ input,textarea,select,*{ outline: none;}
   li:hover,li.cur{ border-bottom: 1px solid $color-y}
   li:hover a,li.cur a{ color: $color-y;}
 }
-.vertical-lr{writing-mode: vertical-lr; padding-top: 60px; border-right: 1px solid $colorf; width: 22px; padding-bottom: 5px;}
+.vertical-lr{writing-mode: vertical-lr; padding-top: 60px; border-right: 1px solid $colorf; width: 22px; padding-bottom: 5px; white-space: nowrap;}
 .new-desc{ display: flex; overflow: hidden; margin-top: -40px; position: relative; z-index: 3;}
 .new-page{
   .swiper-slide{ display: block;}
@@ -282,8 +283,8 @@ input,textarea,select,*{ outline: none;}
   a{ color: $colorf; margin: 0 5px;cursor: pointer;}
   a:hover,a.cur{ color: $color-y; }
 }
-.btn-danqu-next{ right: -30px; cursor: pointer; opacity: 0.7;}
-.btn-danqu-prev{ left: -30px; cursor: pointer; opacity: 0.7;}
+.btn-danqu-next{  cursor: pointer; opacity: 0.7;}
+.btn-danqu-prev{  cursor: pointer; opacity: 0.7;}
 .btn-danqu-next:hover,.btn-danqu-prev:hover{ opacity: 1;}
 
 .flex-zhuanji{ align-content: space-between;cursor:url('../images/view1.png'),auto }
@@ -367,6 +368,7 @@ input,textarea,select,*{ outline: none;}
   .video-js .vjs-big-play-button{ line-height: 1.8em; width: 2em; height: 2em; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%);}
   .video-js{ width: 100%; height: 100%;}
 }
+.cursord{ cursor: default;}
 @media screen and (max-width: 991px) {
   .logo,
   .pc-nav {
@@ -392,8 +394,8 @@ input,textarea,select,*{ outline: none;}
   .header{
     padding:  0 10px 0 15px;
     .navlist{
-      li{ padding: 0 10px; height: 100px;}
-      li a.menu{height: 100%; display: block; line-height: 98px;}
+      li{ padding: 0 10px;}
+      li a.menu{height: 100%; display: block; }
       li:hover a.menu,li.cur a.menu{  color: $color-y  }
       li:last-child{ position: relative;}
       li:last-child::after{ display: block; content: ''; position: absolute; left: 0; top: 50%; height: 14px; border-left: 1px solid #fff;  transform: translateY(-50%)}
@@ -418,6 +420,12 @@ input,textarea,select,*{ outline: none;}
     }
   
   }
+  .about {
+    .about-txt{ font-size: 200px;}
+  }
+  .title-changp{ font-size: 100px;top: 80px}
+  .btn-danqu-next{right: -30px;}
+  .btn-danqu-prev{ left: -30px; }
 }
 
 @keyframes zoomIn {
