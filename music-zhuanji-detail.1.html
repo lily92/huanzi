@@ -64,7 +64,8 @@
           <div class="player positionr w50">
             <img src="images/zhuanji-detail.jpg" alt="" srcset="" class="w100 visible-hidden">
             <div class="positionb flex" id="zhuanji-detail">
-              <video id="my-player" controls class="video-js" preload="auto" poster="//vjs.zencdn.net/v/oceans.png" style="padding-bottom:20px;">
+              <video id="my-player" class="video-js" preload="auto" controls poster="//vjs.zencdn.net/v/oceans.png"
+               >
                 <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
                 </source>
                 <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
@@ -87,67 +88,36 @@
               <div class="m-pause1 icon"></div>
               <div class="m-xunhuan icon " id="xunhuan"></div>
             </div> -->
-            <div class="progress">
-              <div class="bar" ></div>
-            </div>
-            <div class="currentTme"></div>
-            <div class="duration"></div>
             <script>
-              function getFormatTime(time) {
-                // var time = 0;
-                var h = parseInt(time / 3600),
-                  m = parseInt(time % 3600 / 60),
-                  s = parseInt(time % 60);
-                h = h < 10 ? "0" + h : h;
-                m = m < 10 ? "0" + m : m;
-                s = s < 10 ? "0" + s : s;
-                return h + ":" + m + ":" + s;
-              }
               $(function () {
-                var video = document.getElementById('my-player');
-                $('#palyer_btn').click(function (e) {
-                  e.preventDefault();
-                  if (video.paused) {
-                    video.play();
-                    $(this).addClass('pause');
-                  } else {
-                    video.pause();
-                    $(this).removeClass('pause');
-                  }
-
-                });
-                video.oncanplay = function () {      //显示视频
-                  var duration = this.duration;       // 视频总时长
-                  var currTime = this.currentTime
-                  var volume  = this.volume //音量
-                  //百分比
-                  var pre = currTime / duration * 100 + "%";
-                  $('.bar').css({'width':pre})
-                  console.log(duration)
-                  console.log(getFormatTime(currTime))
-                  $('.currentTme').text(getFormatTime(currTime))
-                  console.log(volume)
-                  // console.log(pre)
-
+                var options = {
+                  loop: false,
+                  language: 'zh-CN'
                 };
+                var player = videojs('my-player', options, function onPlayerReady() {
+                  // $('#palyer_btn').click(function (e) {
+                  //   e.preventDefault();
+                  //   if (!$(this).hasClass('pause')) {
+                  //     _this.play();
+                  //     $(this).addClass('pause');
+                  //   } else {
+                  //     _this.pause();
+                  //     $(this).removeClass('pause');
+                  //   }
+                  // });
 
-                video.ontimeupdate = function(){
-                  var duration = this.duration;       // 视频总时长
-                  var currTime = this.currentTime
-                  //百分比
-                  var pre = currTime / duration * 100 + "%";
-                  $('.bar').css({'width':pre})
-                  $('.currentTme').text(getFormatTime(currTime))
-                  console.log(duration)
-                  console.log(getFormatTime(currTime))
-                  // console.log(pre)
-                }
-                //跳跃播放
-                // progress.onclick = function (event) {
-                //   var event = window.event;
-                //   video.currentTime = (event.offsetX / this.offsetWidth) * video.duration;
-                // };
+                  // How about an event listener?
+                  // this.on('ended', function () {
+                  //   videojs.log('播放完毕');
+                  // });
 
+                  // 控制是否循环
+                  // $('.xunhuan').click(function (e) {
+                  //   e.preventDefault();
+                  //   options.loop = !options.loop
+                  // });
+                });
+              
               })
             </script>
 
