@@ -40,7 +40,7 @@ input,textarea,select,*{ outline: none;}
 .positionr{ position: relative;}
 .positionb{ position: absolute; width: 100%; height: 100%; left: 0; top: 0;}
 .visible-hidden{ visibility: hidden;}
-.color9{ color: $color9}
+.color9{ color: $color9} 
 .color6{ color: $color6}
 .color3{ color: $color3}
 .padding40{ padding-bottom: 40px; padding-top: 40px;}
@@ -358,10 +358,13 @@ input,textarea,select,*{ outline: none;}
  .m-player.pause{ background: url(../images/m-pause.png) no-repeat center;}
  .icon{ display: inline-block; width: 40px; height: 40px; cursor: pointer;}
  .m-sheny{ background: url(../images/m-shengy.png) no-repeat center;}
+ .m-sheny.m-p0{background: url(../images/m-p0.png) no-repeat center;}
+
  .m-prev{ background: url(../images/m-prev.png) no-repeat center;}
  .m-next{ background: url(../images/m-next.png) no-repeat center;}
  .m-pause1{ background: url(../images/m-pause1.png) no-repeat center;}
  .m-xunhuan{background: url(../images/m-xunhuan.png) no-repeat center; margin: 0 20px;}
+ .m-xunhuan.m-xunhuan0{background: url(../images/m-xunhuan2.png) no-repeat center}
 }
 #zhuanji-detail,.video-con,.play-video{
   // .vjs-big-play-button{ display: none;}
@@ -371,6 +374,9 @@ input,textarea,select,*{ outline: none;}
 .cursord{ cursor: default;}
 .progress{ position: absolute; bottom: 0; width: 100%; height: 5px; left: 0; background: #525252;}
 .bar{ height: 5px; background: $color-y; width: 0;}
+.currentTme,.duration{ position: absolute;  bottom: 10px; color: $colorf}
+.currentTme{left:3px;}
+.duration{ right: 3px;}
 @media screen and (max-width: 991px) {
   .logo,
   .pc-nav {

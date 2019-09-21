@@ -64,7 +64,9 @@
           <div class="player positionr w50">
             <img src="images/zhuanji-detail.jpg" alt="" srcset="" class="w100 visible-hidden">
             <div class="positionb flex" id="zhuanji-detail">
-              <video id="my-player" controls class="video-js" preload="auto" poster="//vjs.zencdn.net/v/oceans.png" style="padding-bottom:20px;">
+              <!-- controls -->
+              <video id="my-player" class="video-js"  preload="auto" loop='true' poster="//vjs.zencdn.net/v/oceans.png"
+                style="padding-bottom:20px;">
                 <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
                 </source>
                 <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
@@ -79,16 +81,16 @@
                 </p>
               </video>
             </div>
-            <!-- <div class="controler  flex">
+            <div class="controler  flex">
               <div class="m-sheny icon"></div>
               <div class="m-prev icon"></div>
-              <div class="m-player" id="palyer_btn"></div>
+              <div class="m-player pause" id="palyer_btn"></div>
               <div class="m-next icon"></div>
               <div class="m-pause1 icon"></div>
               <div class="m-xunhuan icon " id="xunhuan"></div>
-            </div> -->
+            </div>
             <div class="progress">
-              <div class="bar" ></div>
+              <div class="bar"></div>
             </div>
             <div class="currentTme"></div>
             <div class="duration"></div>
@@ -109,45 +111,72 @@
                   e.preventDefault();
                   if (video.paused) {
                     video.play();
-                    $(this).addClass('pause');
+                    $(this).removeClass('pause');
                   } else {
                     video.pause();
-                    $(this).removeClass('pause');
+                    $(this).addClass('pause');
                   }
 
                 });
                 video.oncanplay = function () {      //显示视频
                   var duration = this.duration;       // 视频总时长
                   var currTime = this.currentTime
-                  var volume  = this.volume //音量
+                  var volume = this.volume //音量
                   //百分比
                   var pre = currTime / duration * 100 + "%";
-                  $('.bar').css({'width':pre})
-                  console.log(duration)
-                  console.log(getFormatTime(currTime))
+                  $('.bar').css({ 'width': pre })
+                  // console.log(duration)
+                  // console.log(getFormatTime(currTime))
                   $('.currentTme').text(getFormatTime(currTime))
+                  $('.duration').text(getFormatTime(duration))
                   console.log(volume)
-                  // console.log(pre)
 
                 };
 
-                video.ontimeupdate = function(){
+                video.ontimeupdate = function () {
                   var duration = this.duration;       // 视频总时长
                   var currTime = this.currentTime
                   //百分比
                   var pre = currTime / duration * 100 + "%";
-                  $('.bar').css({'width':pre})
+                  $('.bar').css({ 'width': pre })
                   $('.currentTme').text(getFormatTime(currTime))
-                  console.log(duration)
-                  console.log(getFormatTime(currTime))
+                  $('.duration').text(getFormatTime(duration))
                   // console.log(pre)
                 }
                 //跳跃播放
-                // progress.onclick = function (event) {
-                //   var event = window.event;
-                //   video.currentTime = (event.offsetX / this.offsetWidth) * video.duration;
-                // };
+                $('.progress').click(function (e) {
+                  e.preventDefault();
+                  var event = e;
+                  video.currentTime = (event.offsetX / this.offsetWidth) * video.duration;
 
+                });
+
+
+                //静音
+                $('.m-sheny').click(function (e) { 
+                  e.preventDefault();
+                  if(video.volume !=0){
+                    video.volume = 0
+                    $(this).addClass('m-p0')
+                  }else{
+                    video.volume = 1
+                    $(this).removeClass('m-p0')
+                  }
+                });
+
+                //循环2
+                $('.m-xunhuan').click(function (e) { 
+                  e.preventDefault();
+                  if(video.loop){
+                    video.loop = false
+                    $(this).addClass('m-xunhuan0')
+                  }else{
+                    video.loop = true
+                    $(this).removeClass('m-xunhuan0')
+                  }
+                });
+
+            
               })
             </script>
 
