@@ -366,10 +366,10 @@ input, textarea, select, * {
 .page-index0 .swiper-slide-active {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   transition: 0.5s linear all;
   animation-fill-mode: forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
 }
 
 .swiper-slide {
@@ -804,9 +804,13 @@ input, textarea, select, * {
   opacity: 1;
 }
 
+.new-tag {
+  margin-bottom: 10px;
+}
+
 .new-tag li {
   display: inline-block;
-  width: 100px;
+  min-width: 100px;
   height: 35px;
   text-align: center;
   line-height: 35px;

@@ -65,7 +65,7 @@
             <img src="images/zhuanji-detail.jpg" alt="" srcset="" class="w100 visible-hidden">
             <div class="positionb flex" id="zhuanji-detail">
               <!-- controls -->
-              <video id="my-player" class="video-js"  preload="auto" loop='true' poster="//vjs.zencdn.net/v/oceans.png"
+              <video id="my-player" class="video-js" preload="auto" loop='true' poster="//vjs.zencdn.net/v/oceans.png"
                 style="padding-bottom:20px;">
                 <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
                 </source>
@@ -107,6 +107,7 @@
               }
               $(function () {
                 var video = document.getElementById('my-player');
+             
                 $('#palyer_btn').click(function (e) {
                   e.preventDefault();
                   if (video.paused) {
@@ -129,7 +130,6 @@
                   // console.log(getFormatTime(currTime))
                   $('.currentTme').text(getFormatTime(currTime))
                   $('.duration').text(getFormatTime(duration))
-                  console.log(volume)
 
                 };
 
@@ -148,35 +148,32 @@
                   e.preventDefault();
                   var event = e;
                   video.currentTime = (event.offsetX / this.offsetWidth) * video.duration;
-
                 });
 
-
                 //静音
-                $('.m-sheny').click(function (e) { 
+                $('.m-sheny').click(function (e) {
                   e.preventDefault();
-                  if(video.volume !=0){
+                  if (video.volume != 0) {
                     video.volume = 0
                     $(this).addClass('m-p0')
-                  }else{
+                  } else {
                     video.volume = 1
                     $(this).removeClass('m-p0')
                   }
                 });
 
-                //循环2
-                $('.m-xunhuan').click(function (e) { 
+                //循环播放
+                $('.m-xunhuan').click(function (e) {
                   e.preventDefault();
-                  if(video.loop){
+                  if (video.loop) {
                     video.loop = false
                     $(this).addClass('m-xunhuan0')
-                  }else{
+                  } else {
                     video.loop = true
                     $(this).removeClass('m-xunhuan0')
                   }
                 });
 
-            
               })
             </script>
 
