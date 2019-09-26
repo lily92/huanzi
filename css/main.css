@@ -427,7 +427,7 @@ input, textarea, select, * { outline: none; }
 
 .detail-describe { padding: 30px 0; }
 
-.jianjie { height: 110px; overflow: hidden; padding-right: 10px; }
+.jianjie { height: 109px; overflow: hidden; padding-right: 10px; }
 
 .jianjie-auto { height: auto; }
 
