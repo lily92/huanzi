@@ -203,13 +203,13 @@ input,textarea,select,*{ outline: none;}
     .song-txt{ padding: 5px 0 10px ; border-bottom: 1px solid $color3}
     .song-hover{ position: absolute; left: 0; top: 0; width: 0; z-index: 2; background: $colorf; height: 100%; justify-content: space-between;  display: none; opacity: 0; transition: .3s linear all; overflow-y: hidden; overflow-x: visible}
     .song-list{ padding: 30px 0 0 0 ;
-      ul{ justify-content: space-between;}
-      ul li{ width: 18%}
+      ul{ justify-content: flex-start;}
+      ul li{ width: 20%; padding: 0 1%}
       ul li:hover .song-hover,ul li.cur .song-hover{ display: flex; opacity: 1;width: 214%;transition: .3s linear all;}
       ul li:last-child .song-hover { left:  auto; right: 0;}
     }
     .song-list-4{
-      ul li { margin-bottom: 15px; display: block; width: 23%}
+      ul li { margin-bottom: 15px; display: block; width: 25%; padding-left: 1%; padding-right: 1%;}
       // ul li:last-child .song-hover{ left: 0; right: auto; }
       ul li:hover,ul li.cur{ z-index: 999;}
       li:nth-child(4n) .song-hover{left:  auto !important; right: 0 !important;}
